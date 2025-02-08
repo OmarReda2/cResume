@@ -36,4 +36,8 @@ public class Eduction {
     private Date endDate;
 
 
+//    ----------------------- relations -------------------------
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

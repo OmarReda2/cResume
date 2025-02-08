@@ -30,4 +30,10 @@ public class Course {
     @Column(name = "end_date")
     private Date endDate;
 
+
+//    ----------------------- relations -------------------------
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

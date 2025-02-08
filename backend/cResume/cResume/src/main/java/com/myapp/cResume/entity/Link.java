@@ -21,5 +21,10 @@ public class Link {
     @Column(name = "url")
     private String url;
 
+//    ----------------------- relations -------------------------
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
+
 
 }

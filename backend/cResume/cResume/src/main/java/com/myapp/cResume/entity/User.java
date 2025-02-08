@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "user")
 @Getter
@@ -26,5 +29,17 @@ public class User {
 
     @Column(name = "intro")
     private String intro;
+
+
+//    ----------------------- relations -------------------------
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Course> courses = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Eduction> educations = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private  Set<Link> links = new HashSet<>();
 
 }
