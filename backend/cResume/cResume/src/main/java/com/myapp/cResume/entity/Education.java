@@ -35,6 +35,9 @@ public class Education {
     @Column(name = "end_date")
     private Date endDate;
 
+    @Column(name = "description")
+    private String description;
+
 
 //    ----------------------- relations -------------------------
     @ManyToOne
