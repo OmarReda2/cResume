@@ -37,7 +37,7 @@ public class User {
     private Set<Course> courses = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Set<Eduction> educations = new HashSet<>();
+    private Set<Education> educations = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private  Set<Link> links = new HashSet<>();
