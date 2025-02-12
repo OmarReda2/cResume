@@ -1,7 +1,7 @@
 -- ------------------------- <1.create user> ------------------------- 
--- CREATE USER 'ecommerceapp'@'localhost' IDENTIFIED BY 'ecommerceapp';
+-- CREATE USER 'resumeapp'@'localhost' IDENTIFIED BY 'resumeapp';
 
--- GRANT ALL PRIVILEGES ON * . * TO 'ecommerceapp'@'localhost';
+-- GRANT ALL PRIVILEGES ON * . * TO 'resumeapp'@'localhost';
 
 -- #
 -- # Starting with MySQL 8.0.4, the MySQL team changed the 
@@ -13,15 +13,15 @@
 -- # See the MySQL Reference Manual for details: 
 -- # https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html
 -- #
--- ALTER USER 'ecommerceapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ecommerceapp';
+-- ALTER USER 'resumeapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'resumeapp';
 -- ------------------------- </create user> ------------------------- 
 
 
 
 
 -- ------------------------- <2.Create Schema resume-app> -------------------------
--- DROP SCHEMA IF EXISTS `resume-app`;
--- CREATE SCHEMA `resume-app`;
+DROP SCHEMA IF EXISTS `resume-app`;
+CREATE SCHEMA `resume-app`;
 -- ------------------------- </Create Schema resume-app> -------------------------
 
 
@@ -92,3 +92,12 @@ CREATE TABLE `link` (
   KEY `K_link_user_id` (`user_id`),
   CONSTRAINT `FK_link_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+-- insert some data to test
+INSERT INTO user (first_name, last_name, age, email, intro)
+VALUES ('Omar', 'Reda', 10,'omarredaelsayied@gmail.com',
+'A motivated junior software developer with a passion for creating efficient code and a good understanding of clean code and 
+OOP concepts. I am interested in data analysis, AI, machine & deep learning, and web Development. Eager to enhance my 
+skills and tackle real-world challenges.');

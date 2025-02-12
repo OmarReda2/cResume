@@ -9,8 +9,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "course")
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class Course {
 
     @Id
@@ -34,9 +34,88 @@ public class Course {
     private String description;
 
 
-//    ----------------------- relations -------------------------
+    //    ----------------------- relations -------------------------
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
+
+
+
+    //    ----------------------- constructors -------------------------
+    public Course() {
+    }
+
+    public Course(String name, String location, Date startDate, Date endDate, String description) {
+        this.name = name;
+        this.location = location;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+    }
+
+
+    //    ----------------------- getters -------------------------
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+
+    //    ----------------------- setters -------------------------
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+
 
 }
