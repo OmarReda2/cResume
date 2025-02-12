@@ -24,6 +24,9 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name="image_url")
+    private String imageUrl;
+
     @Column(name = "age")
     private int age;
 
@@ -49,9 +52,10 @@ public class User {
     //    ----------------------- constructors -------------------------
     public User() {
     }
-    public User(String firstName, String lastName, int age, String email, String intro) {
+    public User(String firstName, String lastName, int age, String email, String intro, String imageUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.imageUrl = imageUrl;
         this.age = age;
         this.email = email;
         this.intro = intro;
@@ -88,6 +92,10 @@ public class User {
         return links;
     }
 
+    public String getImageUrl(){
+        return imageUrl;
+    }
+
 
     public void setId(long id) {
         this.id = id;
@@ -115,6 +123,10 @@ public class User {
     }
     public void setLinks(Set<Link> links) {
         this.links = links;
+    }
+
+    public void setImageUrl(String imageUrl){
+        this.imageUrl = imageUrl;
     }
 
 

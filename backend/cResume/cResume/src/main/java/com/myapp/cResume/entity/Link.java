@@ -23,7 +23,7 @@ public class Link {
 
 //    ----------------------- relations -------------------------
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
 

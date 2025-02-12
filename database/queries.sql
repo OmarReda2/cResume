@@ -101,3 +101,39 @@ VALUES ('Omar', 'Reda', 10,'omarredaelsayied@gmail.com',
 'A motivated junior software developer with a passion for creating efficient code and a good understanding of clean code and 
 OOP concepts. I am interested in data analysis, AI, machine & deep learning, and web Development. Eager to enhance my 
 skills and tackle real-world challenges.');
+
+INSERT INTO course (name, description, location, start_date, end_date, user_id)
+VALUES ('Problem Solving Training', 
+'Covering techniques for attacking and solving challenging computational problems. Fundamental 
+algorithmic solving techniques covered include complete search, divide/reduce/transform conquer, 
+greedy and mathematics.', 
+'COACH ACADEMY',
+('2022-11-1'),
+('2023-5-1'),
+1);
+
+INSERT INTO course (name, description, location, start_date, end_date, user_id)
+VALUES ('Data Science Internship', 
+'Working on real-life projects and applies Different ML and analysis techniques.', 
+'TECHNOCOLABS',
+('2023-7-1'),
+('2023-5-1'),
+1);
+
+INSERT INTO course (name, description, grade, gpa, location, start_date, end_date, user_id)
+VALUES ('Data Science Internship', 
+'Working on real-life projects and applies Different ML and analysis techniques.', 
+'TECHNOCOLABS',
+('2023-7-1'),
+('2023-9-1'),
+1);
+
+INSERT INTO education (name, grade, gpa, location, start_date, end_date, user_id)
+VALUES ('Computer Science and Artificial intelligence - Medical Informatics Department', 
+'very good with honor',
+'3.2', 
+'Helwan University',
+('2019-10-1'),
+('2023-6-1'),
+1);
+
