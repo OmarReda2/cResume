@@ -1,13 +1,32 @@
-<div class="bg-secondary">
-    <div *ngFor="let course of courses;">
+
+<div class="alert alert-secondary  m-3 p-3">
+    <form (ngSubmit)="updateCourseData()">
         <div>
-            {{course.id}}
-            {{course.name}}
-            {{course.description}}
-            {{course.startDate}}-{{course.endDate}}
+            <div *ngFor="let course of courses">
+                <div class="row">
+                    <div class="col-1 alert alert-dark">
+                        <div>
+                            {{course.startDate}}:
+                        </div>
+                        <div>
+                            {{course.endDate}}
+                        </div>
+                    </div>
+
+                    <div class="col-11 alert alert-dark">
+                        <label>{{course.name}}</label>
+                        <textarea rows="5" type="text" class="form-control" name="{{course.description}}" 
+                           [(ngModel)]="course.description" (ngModelChange)="addUpdatedCourses(course)">
+                        </textarea>
+                        <!-- <span>{{course.description}}</span> -->
+                    </div>
+                </div>
+            </div>
         </div>
-        --------------------
-    </div>
+    
+    
+        <div>
+            <button class="btn btn-secondary mt-3 " type="submit">Submit</button>
+        </div>
+    </form>
 </div>
-
-

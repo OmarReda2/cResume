@@ -1,16 +1,31 @@
-<div class="bg-primary">
-    <div *ngFor="let edu of educations;">
+<div class="alert alert-success  m-3 p-3">
+    <form (ngSubmit)="updateEductionData()">
         <div>
-            {{edu.id}}
-            {{edu.name}}
-            {{edu.grade}}
-            {{edu.gpa}}
-            {{edu.description}}
-            {{edu.startDate}}
-            {{edu.endDate}}
+            <div *ngFor="let edu of educations">
+                <div class="row">
+                    <div class="col-1 alert bg-success bg-opacity-25 me-1">
+                        <div>
+                            {{edu.startDate}}:
+                        </div>
+                        <div>
+                            {{edu.endDate}}
+                        </div>
+                    </div>
+
+                    <div class="col-10 alert bg-success bg-opacity-50">
+                        <label>{{edu.name}}</label>
+                        <div class="fst-italic fs-6">{{edu.grade}}, {{edu.gpa}}</div>
+                        <textarea rows="5" type="text" class="form-control" name="description" 
+                           [(ngModel)]="edu.description" (ngModelChange)="addUpdatedEducations(edu)">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>    
-
-
-
+    
+    
+        <div>
+            <button class="btn btn-success mt-3 " type="submit">Submit</button>
+        </div>
+    </form>
+</div>

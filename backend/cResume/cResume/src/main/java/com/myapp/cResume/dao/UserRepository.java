@@ -12,11 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin("http://localhost:4200")
 public interface UserRepository extends JpaRepository<User, Long> {
 
-//    @Modifying
-//    @Query("UPDATE User u SET u=?1 WHERE u.id=?2")
-//    User updateUser(@RequestBody User user,@RequestParam("userId")Long id);
-
-//    @Modifying
-//    @Query("UPDATE User u SET u.firstName=?1 WHERE u.id=?2")
-//    int updateUser(@RequestParam String userName,@RequestParam("userId")Long id);
+    
 }

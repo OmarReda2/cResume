@@ -11,8 +11,9 @@ import { Link } from 'src/app/common/link';
 export class UserComponent implements OnInit {
 
   id:number=1;
-  user?:User;
-  links?:Link[];
+  user?:User=new User();
+  links:Link[]=[];
+  updatedLinksArr:Map<number|undefined,Link> = new Map<number|undefined,Link>();
 
   constructor(private userDataService: UserDataService) { }
   ngOnInit(): void {
@@ -20,7 +21,10 @@ export class UserComponent implements OnInit {
     this.getLinks();
   }
 
+  
 
+  
+  
   getUserData() {
     this.userDataService.getUserData(this.id).subscribe(
       data => {
@@ -28,7 +32,19 @@ export class UserComponent implements OnInit {
       }
     )
   }
-
+  updateUser() {
+    this.userDataService.updateUserData(this.id, this.user).subscribe(
+      data => {
+        alert("User Updated Successfully")
+        // console.log(data);
+        
+      },
+      err => {
+        alert("User Update Failed")
+      }
+    )
+  }
+  
   
   getLinks() {
     this.userDataService.getLinksData(this.id).subscribe(
@@ -37,6 +53,27 @@ export class UserComponent implements OnInit {
       }
     )
   }
+  addUpdatedLinks(link:Link){
+    this.updatedLinksArr.set(link.id, link)
+    // console.log(link);
+  }
+  updateLinkData(){
+    this.updatedLinksArr?.forEach(link => {
+      this.userDataService.updateLinkData(this.id,link.id,link).subscribe(
+        data => {
+          alert("Link Updated Successfully")
+          
+          
+        },
+        err=>{
+          alert("Link Update Failed")
+          console.log(err);
+          
+        }
+      )
+    });
+  }
+  
 
 
 }

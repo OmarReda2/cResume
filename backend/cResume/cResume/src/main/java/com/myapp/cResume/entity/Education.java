@@ -29,9 +29,11 @@ public class Education {
     @Column(name = "gpa")
     private double gpa;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "start_date")
     private Date startDate;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "end_date")
     private Date endDate;
 

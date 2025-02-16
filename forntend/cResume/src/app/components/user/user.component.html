@@ -1,33 +1,55 @@
-<div class="bg-warning m-3 p-3">
+<div class="alert alert-primary m-3 p-3">
 
-    <form >
+    <form>
         <div class="row g-3">
             <div class="col-3">
-                <input type="text" class="form-control " value="{{user?.firstName}}">
+                <input type="text" class="form-control" [(ngModel)]="user!.firstName" name="firstName">
             </div>
 
             <div class="col-3">
-                <input type="text" class="form-control" value="{{user?.lastName}}">
+                <input type="text" class="form-control" [(ngModel)]="user!.lastName" name="lastName">
             </div>
 
             <div class="col-3">
-                <input type="text" class="form-control" value="{{user?.country}}-{{user?.city}}">
+                <input type="text" class="form-control" [(ngModel)]="user!.country" name="country">
             </div>
 
             <div class="col-3">
-                <input type="text" class="form-control" value="{{user?.age}}">
+                <input type="text" class="form-control" [(ngModel)]="user!.city" name="city">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.age" name="age">
             </div>
 
             <div class="col-12 w-100">
-                <input type="text" class="form-control" value="{{user?.intro}}">
+                <textarea class="form-control" rows="10" [(ngModel)]="user!.intro" name="intro"></textarea>
             </div>
-
         </div>
+
+
+        <div>
+            <button class="btn btn-primary mt-3 " (click)="updateUser()">Submit</button>
+        </div>
+
     </form>
 
- 
+
+
+
+
     <hr>
-    <div *ngFor="let link of links">
-        <div>{{link.name}}:{{link.url}}</div>
-    </div>
+    <form (ngSubmit)="updateLinkData()">
+        <div class="row g-2">
+            <div *ngFor="let link of links" class="col-6">
+                <label for="{{link.url}}">{{link.name}}</label>
+                <input type="text" class="form-control" name="{{link.url}}" 
+                       [(ngModel)]="link.url" (ngModelChange)="addUpdatedLinks(link)">
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-primary mt-3 " type="submit">Submit</button>
+        </div>
+    </form>
 </div>

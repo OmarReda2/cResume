@@ -45,7 +45,6 @@ CREATE TABLE `user` (
   `last_name` varchar(255) DEFAULT NULL,
   `image_url` varchar(255) DEFAULT NULL,
   `age` int DEFAULT NULL,
-  -- `email` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `intro` text DEFAULT NULL,
@@ -59,8 +58,8 @@ CREATE TABLE `course` (
   `name` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
-  `start_date` datetime(6) DEFAULT NULL,
-  `end_date` datetime(6) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
   `user_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `K_course_user_id` (`user_id`),
@@ -99,8 +98,8 @@ CREATE TABLE `link` (
 
 
 -- insert some data to test
-INSERT INTO user (first_name, last_name, image_url,age, email, intro)
-VALUES ('Omar', 'Reda', 'assets/images/user1.jpg',10,'omarredaelsayied@gmail.com',
+INSERT INTO user (first_name, last_name, country, city, image_url,age, intro)
+VALUES ('Omar', 'Reda Elsayed', 'Egypt', 'Cairo', 'assets/images/user1.jpg', 24 ,
 'A motivated junior software developer with a passion for creating efficient code and a good understanding of clean code and 
 OOP concepts. I am interested in data analysis, AI, machine & deep learning, and web Development. Eager to enhance my 
 skills and tackle real-world challenges.');
@@ -141,5 +140,15 @@ VALUES ('LinkedIn',
 INSERT INTO link(name, url, user_id)
 VALUES ('github',
 'https://www.github.user1.com',
+1);
+
+INSERT INTO link(name, url, user_id)
+VALUES ('gmail',
+'omarreda@gmail.com',
+1);
+
+INSERT INTO link(name, url, user_id)
+VALUES ('phone number',
+'+201027563659',
 1);
 

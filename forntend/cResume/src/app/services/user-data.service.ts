@@ -1,8 +1,8 @@
+import { User } from 'src/app/common/user';
 import { Link } from './../common/link';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { User } from '../common/user';
 import { Course } from '../common/course';
 import { Education } from '../common/education';
 
@@ -12,20 +12,34 @@ import { Education } from '../common/education';
 export class UserDataService {
 
   private baseUrl = "http://localhost:8080";
-  
-
 
   constructor(private httpclient:HttpClient) { }
 
 
+
+
+
+
+
+
+  
   getUserData(id:number):Observable<User>{
     const userUrl = `${this.baseUrl}/users/${id}`
     return this.httpclient.get<User>(userUrl);
   }
-
-  updateUserData(id:number):Observable<User>{
-    
+  updateUserData(id:number, user?:User):Observable<User>{
+    const userUrl = `${this.baseUrl}/users/${id}`
+    return this.httpclient.put<User>(userUrl, user);
   }
+
+
+
+
+
+
+
+
+
 
 
   getCoursesData(userId:number):Observable<Course[]>{
@@ -34,6 +48,16 @@ export class UserDataService {
       map(res => res._embedded.courses)
     )
   }
+  updateCourseData(userId:number,courseId?:number,course?:Course):Observable<Course>{
+    const searchUrl = `${this.baseUrl}/courses/updateCourse/${userId}/${courseId}`
+    return this.httpclient.put<Course>(searchUrl,course)
+  }
+  
+  
+
+
+
+
 
 
   getEducationsData(userId:number):Observable<Education[]>{
@@ -42,6 +66,21 @@ export class UserDataService {
       map(res => res._embedded.educations)
     )
   }
+  updateEductionData(userId:number,eduId?:number,edu?:Education):Observable<Education>{
+    const searchUrl = `${this.baseUrl}/educations/updateEducation?userId=${userId}&eduId=${eduId}`
+    return this.httpclient.put<Education>(searchUrl,edu)
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
   getLinksData(userId:number):Observable<Link[]>{
@@ -49,6 +88,10 @@ export class UserDataService {
     return this.httpclient.get<getLinksRes>(searchUrl).pipe(
       map(res => res._embedded.links)
     )
+  }
+  updateLinkData(userId:number,urlId?:number,link?:Link):Observable<Link>{
+    const searchUrl = `${this.baseUrl}/links/updateLinkByUserId?urlId=${urlId}&userId=${userId}`
+    return this.httpclient.put<Link>(searchUrl,link)
   }
 }
 
