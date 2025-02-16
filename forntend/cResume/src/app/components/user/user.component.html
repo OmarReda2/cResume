@@ -1,12 +1,33 @@
-<div>
-    <div>
-        <img src="{{user?.imageUrl}}"  style="width: 50%;height: 50%;">
-    </div>
+<div class="bg-warning m-3 p-3">
 
-    {{user?.id}}
-    {{user?.firstName}}
-    {{user?.lastName}}
-    {{user?.age}}
-    {{user?.intro}}
-    {{user?.email}}
+    <form >
+        <div class="row g-3">
+            <div class="col-3">
+                <input type="text" class="form-control " value="{{user?.firstName}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" value="{{user?.lastName}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" value="{{user?.country}}-{{user?.city}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" value="{{user?.age}}">
+            </div>
+
+            <div class="col-12 w-100">
+                <input type="text" class="form-control" value="{{user?.intro}}">
+            </div>
+
+        </div>
+    </form>
+
+ 
+    <hr>
+    <div *ngFor="let link of links">
+        <div>{{link.name}}:{{link.url}}</div>
+    </div>
 </div>

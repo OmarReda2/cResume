@@ -5,8 +5,9 @@ export class User {
     lastName?:String;
     imageUrl?:String;
     age?:number;
-    email?:String;
-    intro?:String
+    city?:String;
+    country?:String;
+    intro?:String;
 
     constructor(){ }
 

@@ -43,8 +43,11 @@ CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL,
   `age` int DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  -- `email` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
   `intro` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -66,7 +69,7 @@ CREATE TABLE `course` (
 
 
 -- Table structure for table `eduction`
-CREATE TABLE `eduction` (
+CREATE TABLE `education` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -96,8 +99,8 @@ CREATE TABLE `link` (
 
 
 -- insert some data to test
-INSERT INTO user (first_name, last_name, age, email, intro)
-VALUES ('Omar', 'Reda', 10,'omarredaelsayied@gmail.com',
+INSERT INTO user (first_name, last_name, image_url,age, email, intro)
+VALUES ('Omar', 'Reda', 'assets/images/user1.jpg',10,'omarredaelsayied@gmail.com',
 'A motivated junior software developer with a passion for creating efficient code and a good understanding of clean code and 
 OOP concepts. I am interested in data analysis, AI, machine & deep learning, and web Development. Eager to enhance my 
 skills and tackle real-world challenges.');
@@ -120,13 +123,6 @@ VALUES ('Data Science Internship',
 ('2023-5-1'),
 1);
 
-INSERT INTO course (name, description, grade, gpa, location, start_date, end_date, user_id)
-VALUES ('Data Science Internship', 
-'Working on real-life projects and applies Different ML and analysis techniques.', 
-'TECHNOCOLABS',
-('2023-7-1'),
-('2023-9-1'),
-1);
 
 INSERT INTO education (name, grade, gpa, location, start_date, end_date, user_id)
 VALUES ('Computer Science and Artificial intelligence - Medical Informatics Department', 
@@ -135,5 +131,15 @@ VALUES ('Computer Science and Artificial intelligence - Medical Informatics Depa
 'Helwan University',
 ('2019-10-1'),
 ('2023-6-1'),
+1);
+
+INSERT INTO link(name, url, user_id)
+VALUES ('LinkedIn',
+'https://www.linkedIn.user1.com',
+1);
+
+INSERT INTO link(name, url, user_id)
+VALUES ('github',
+'https://www.github.user1.com',
 1);
 

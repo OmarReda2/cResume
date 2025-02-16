@@ -7,7 +7,6 @@ import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseComponent } from './components/course/course.component';
 import { EducationComponent } from './components/education/education.component';
-import { LinkComponent } from './components/link/link.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { LinkComponent } from './components/link/link.component';
     UserComponent,
     CourseComponent,
     EducationComponent,
-    LinkComponent
   ],
   imports: [
     BrowserModule,

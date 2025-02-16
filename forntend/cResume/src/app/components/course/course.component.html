@@ -1,12 +1,13 @@
-
-<div *ngFor="let course of courses;">
-    <div>
-        {{course.id}}
-        {{course.name}}
-        {{course.description}}
-        {{course.startDate}}
-        {{course.endDate}}
+<div class="bg-secondary">
+    <div *ngFor="let course of courses;">
+        <div>
+            {{course.id}}
+            {{course.name}}
+            {{course.description}}
+            {{course.startDate}}-{{course.endDate}}
+        </div>
+        --------------------
     </div>
-    --------------------
 </div>
+
 

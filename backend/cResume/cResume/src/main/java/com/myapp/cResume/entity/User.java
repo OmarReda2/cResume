@@ -24,14 +24,18 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name="city")
+    private String city;
+
+    @Column(name="country")
+    private String country;
+
     @Column(name="image_url")
     private String imageUrl;
 
     @Column(name = "age")
     private int age;
 
-    @Column(name = "email")
-    private String email;
 
     @Column(name = "intro")
     private String intro;
@@ -52,15 +56,16 @@ public class User {
     //    ----------------------- constructors -------------------------
     public User() {
     }
-    public User(String firstName, String lastName, int age, String email, String intro, String imageUrl) {
+
+    public User(String firstName, String lastName, String city, String country, String imageUrl, int age, String intro) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.city = city;
+        this.country = country;
         this.imageUrl = imageUrl;
         this.age = age;
-        this.email = email;
         this.intro = intro;
     }
-
 
 
     //    ----------------------- getters and setters -------------------------
@@ -70,15 +75,26 @@ public class User {
     public String getFirstName() {
         return firstName;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public String getLastName() {
         return lastName;
     }
     public int getAge() {
         return age;
     }
-    public String getEmail() {
-        return email;
-    }
+
     public String getIntro() {
         return intro;
     }
@@ -91,11 +107,14 @@ public class User {
     public Set<Link> getLinks() {
         return links;
     }
-
     public String getImageUrl(){
         return imageUrl;
     }
 
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -108,9 +127,6 @@ public class User {
     }
     public void setAge(int age) {
         this.age = age;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public void setIntro(String intro) {
         this.intro = intro;

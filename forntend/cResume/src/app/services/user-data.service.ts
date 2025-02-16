@@ -23,6 +23,10 @@ export class UserDataService {
     return this.httpclient.get<User>(userUrl);
   }
 
+  updateUserData(id:number):Observable<User>{
+    
+  }
+
 
   getCoursesData(userId:number):Observable<Course[]>{
     const searchUrl = `${this.baseUrl}/courses/search/findByUserId?userId=${userId}`;
