@@ -1,16 +1,15 @@
 package com.myapp.cResume.service;
 
 import com.myapp.cResume.dao.UserRepository;
-import com.myapp.cResume.entity.User;
+import com.myapp.cResume.service.interfaces.UserService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 

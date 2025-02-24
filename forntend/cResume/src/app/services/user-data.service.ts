@@ -22,7 +22,7 @@ export class UserDataService {
 
 
 
-  
+
   getUserData(id:number):Observable<User>{
     const userUrl = `${this.baseUrl}/users/${id}`
     return this.httpclient.get<User>(userUrl);
@@ -52,6 +52,14 @@ export class UserDataService {
     const searchUrl = `${this.baseUrl}/courses/updateCourse/${userId}/${courseId}`
     return this.httpclient.put<Course>(searchUrl,course)
   }
+  deleteCourse(userId:number,courseId?:number):Observable<number>{
+    const url = `${this.baseUrl}/courses/deleteCourse?userId=${userId}&courseId=${courseId}`
+    return this.httpclient.delete<number>(url)
+  }
+  addCourseData(userId:number,course?:Course):Observable<Course>{
+     const url = `${this.baseUrl}/courses/addCourse/${userId}`
+     return this.httpclient.post<Course>(url,course);
+  }
   
   
 
@@ -70,6 +78,15 @@ export class UserDataService {
     const searchUrl = `${this.baseUrl}/educations/updateEducation?userId=${userId}&eduId=${eduId}`
     return this.httpclient.put<Education>(searchUrl,edu)
   }
+  deleteEductionData(userId:number,eduId?:number):Observable<number>{
+    const url = `${this.baseUrl}/educations/deleteEducation?userId=${userId}&eduId=${eduId}`
+    return this.httpclient.delete<number>(url)
+  }
+  addEducationData(userId:number,education?:Education):Observable<Education>{
+     const url = `${this.baseUrl}/educations/addEducation?userId=${userId}`
+     return this.httpclient.post<Education>(url,education);
+  }
+  
 
 
 

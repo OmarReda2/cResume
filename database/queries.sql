@@ -75,8 +75,8 @@ CREATE TABLE `education` (
   `location` varchar(255) DEFAULT NULL,
   `grade` varchar(255) DEFAULT NULL,
   `gpa` decimal(19,2) DEFAULT NULL,
-  `start_date` datetime(6) DEFAULT NULL,
-  `end_date` datetime(6) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
   `user_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `K_eduction_user_id` (`user_id`),
@@ -104,6 +104,10 @@ VALUES ('Omar', 'Reda Elsayed', 'Egypt', 'Cairo', 'assets/images/user1.jpg', 24 
 OOP concepts. I am interested in data analysis, AI, machine & deep learning, and web Development. Eager to enhance my 
 skills and tackle real-world challenges.');
 
+INSERT INTO user (first_name, last_name, country, city, image_url,age, intro)
+VALUES ('Khaled', 'Reda Elsayed', 'Egypt', 'Cairo', 'assets/images/user1.jpg', 17 ,'...');
+
+
 INSERT INTO course (name, description, location, start_date, end_date, user_id)
 VALUES ('Problem Solving Training', 
 'Covering techniques for attacking and solving challenging computational problems. Fundamental 
@@ -123,6 +127,14 @@ VALUES ('Data Science Internship',
 1);
 
 
+INSERT INTO education (name, grade, gpa, location, start_date, end_date, user_id)
+VALUES ('Computer Science and Artificial intelligence - Medical Informatics Department', 
+'very good with honor',
+'3.2', 
+'Helwan University',
+('2019-10-1'),
+('2023-6-1'),
+1);
 INSERT INTO education (name, grade, gpa, location, start_date, end_date, user_id)
 VALUES ('Computer Science and Artificial intelligence - Medical Informatics Department', 
 'very good with honor',

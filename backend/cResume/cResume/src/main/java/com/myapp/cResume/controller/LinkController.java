@@ -1,9 +1,8 @@
 package com.myapp.cResume.controller;
 
 import com.myapp.cResume.entity.Link;
-import com.myapp.cResume.service.LinkService;
+import com.myapp.cResume.service.LinkServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 public class LinkController {
 
 
-    private LinkService linkService;
+    private LinkServiceImpl linkServiceImpl;
 
     @Autowired
-    public LinkController(LinkService linkService){
-        this.linkService = linkService;
+    public LinkController(LinkServiceImpl linkServiceImpl){
+        this.linkServiceImpl = linkServiceImpl;
     }
 
     @PutMapping("/updateLinkByUserId")
     public int updateLink(@RequestBody Link link,
                            @RequestParam Long urlId,
                            @RequestParam Long userId) {
-        return linkService.updateLinkByUserId(link, urlId, userId);
+        return linkServiceImpl.updateLinkByUserId(link, urlId, userId);
     }
 
 }

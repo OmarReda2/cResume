@@ -29,4 +29,9 @@ public interface EducationRepository extends JpaRepository<Education, Long> {
             "e.description = ?#{#edu.description} " +
             "WHERE e.id = :eduId AND e.user.id = :userId")
     int updateEducation(Education edu, Long eduId, Long userId);
+
+   @Transactional
+   @Modifying
+   @Query("DELETE Education e WHERE e.user.id = :userId AND e.id = :eduId")
+    int deleteEduction(Long userId, Long eduId);
 }

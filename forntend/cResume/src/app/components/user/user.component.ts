@@ -14,6 +14,10 @@ export class UserComponent implements OnInit {
   user?:User=new User();
   links:Link[]=[];
   updatedLinksArr:Map<number|undefined,Link> = new Map<number|undefined,Link>();
+  editDisabled:boolean=true; 
+
+
+
 
   constructor(private userDataService: UserDataService) { }
   ngOnInit(): void {
@@ -22,6 +26,12 @@ export class UserComponent implements OnInit {
   }
 
   
+
+
+
+  toggleEdit(){
+    this.editDisabled=!this.editDisabled;
+  }
 
   
   

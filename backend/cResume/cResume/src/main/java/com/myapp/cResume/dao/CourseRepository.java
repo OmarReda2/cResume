@@ -30,5 +30,14 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     int updateCourse(Course course, Long courseId, Long userId);
 
 
+    @Transactional
+    @Modifying
+    @Query("DELETE Course c WHERE c.id = :courseId AND c.user.id = :userId")
+    int deleteCourse(Long userId, Long courseId);
+
+
+
+
+
 }
 

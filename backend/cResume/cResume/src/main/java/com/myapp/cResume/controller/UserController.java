@@ -1,8 +1,6 @@
 package com.myapp.cResume.controller;
 
-import com.myapp.cResume.entity.User;
-import com.myapp.cResume.service.UserService;
-import org.springframework.data.repository.query.Param;
+import com.myapp.cResume.service.UserServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("http://localhost:4200")
 public class UserController {
 
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
-    public UserController(UserService userService){
-        this.userService = userService;
+    public UserController(UserServiceImpl userServiceImpl){
+        this.userServiceImpl = userServiceImpl;
     }
 
 //    @PutMapping("/updateUser")
